@@ -4,30 +4,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio | Graceland Amadeus Subianto</title>
     
-    <!-- Google Fonts untuk tampilan font yang lebih modern -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2 family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS untuk desain modern dan interaktif -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Pengaturan Dasar */
+        /* Variabel CSS untuk Tema Dinamis */
+        :root {
+            --bg-body: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            --bg-container: #ffffff;
+            --bg-card: #f7fafc;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --text-heading: #1a365d;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --nav-text: #4a5568;
+            --shadow: 0 10px 30px rgba(166, 173, 201, 0.2);
+            --border-card: #3182ce;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-container: #1e293b;
+            --bg-card: #334155;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-heading: #38bdf8;
+            --nav-bg: rgba(15, 23, 42, 0.95);
+            --nav-text: #cbd5e1;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --border-card: #38bdf8;
+        }
+
         html {
-            scroll-behavior: smooth; /* Efek scroll halus */
+            scroll-behavior: smooth;
         }
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); /* Background gradient lembut */
-            color: #2d3748;
+            background: var(--bg-body);
+            color: var(--text-main);
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* Bagian Header (Atas) */
+        /* Header */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Gradient tech-blue */
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 70px 20px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
@@ -44,57 +71,91 @@
             font-weight: 300;
         }
 
-        /* Bagian Navigasi (Menu) */
+        /* Navigasi Interaktif */
         nav {
             display: flex;
             justify-content: center;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px); /* Efek blur blur modern */
+            align-items: center;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
             padding: 15px;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: padding 0.3s, background-color 0.3s;
+        }
+        nav.scrolled {
+            padding: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         nav a {
-            color: #4a5568;
+            color: var(--nav-text);
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 15px;
             font-weight: 600;
             font-size: 1em;
             transition: all 0.3s ease;
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 5px;
         }
-        nav a:hover {
+        nav a:hover, nav a.active {
             color: #3182ce; 
             background-color: #ebf8ff;
         }
+        [data-theme="dark"] nav a:hover {
+            color: #38bdf8;
+            background-color: #0f172a;
+        }
 
-        /* Kotak Konten Utama */
+        /* Tombol Toggle Tema */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--nav-text);
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 6px 12px;
+            margin-left: 15px;
+            transition: transform 0.3s, color 0.3s;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.2) rotate(15deg);
+            color: #3182ce;
+        }
+
+        /* Container Konten Utama */
         .container {
             width: 90%;
             max-width: 950px;
             margin: 40px auto;
-            background: white;
+            background: var(--bg-container);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(166, 173, 201, 0.2);
+            box-shadow: var(--shadow);
+            transition: background 0.3s, box-shadow 0.3s;
+            box-sizing: border-box;
         }
 
-        /* Pengaturan Setiap Bagian (Section) */
+        /* Bagian Section dengan Efek Reveal */
         section {
             margin-bottom: 50px;
             scroll-margin-top: 90px; 
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        section.reveal {
+            opacity: 1;
+            transform: translateY(0);
         }
         h2 {
             font-size: 1.8em;
-            color: #1a365d;
+            color: var(--text-heading);
             position: relative;
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
-        /* Garis bawah h2 yang lebih modern */
         h2::after {
             content: '';
             position: absolute;
@@ -102,24 +163,20 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background: #3182ce;
+            background: var(--border-card);
             border-radius: 2px;
         }
         p {
             line-height: 1.7;
-            color: #4a5568;
+            color: var(--text-muted);
         }
 
-        /* List Kustom */
-        ul {
-            padding-left: 20px;
-        }
         ul li {
             margin-bottom: 10px;
-            color: #4a5568;
+            color: var(--text-muted);
         }
 
-        /* Pengaturan Kotak-kotak Kecil (Card) */
+        /* Grid & Cards */
         .grid {
             display: flex;
             gap: 25px;
@@ -127,29 +184,28 @@
             margin-top: 20px;
         }
         .card {
-            background: #f7fafc;
+            background: var(--bg-card);
             padding: 25px;
             border-radius: 12px;
             flex: 1; 
             min-width: 260px;
-            border-top: 4px solid #3182ce; /* Pindah ke atas agar lebih rapi */
+            border-top: 4px solid var(--border-card);
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-sizing: border-box;
         }
-        /* Efek melayang saat card di-hover */
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
-            background: white;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         .card h3 {
             margin-top: 0;
-            color: #2b6cb0;
+            color: var(--text-heading);
             font-size: 1.2em;
             margin-bottom: 12px;
         }
 
-        /* Bagian Footer (Bawah) */
+        /* Footer */
         footer {
             text-align: center;
             padding: 25px;
@@ -177,46 +233,48 @@
         }
         .btn-sosmed:hover {
             background-color: #2b6cb0;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(49, 130, 206, 0.3);
         }
-        /* Warna khusus tombol github agar variatif */
         .btn-github {
             background-color: #2d3748;
-            box-shadow: 0 4px 6px rgba(45, 55, 72, 0.2);
         }
-        .btn-github:hover {
-            background-color: #1a202c;
-            box-shadow: 0 6px 12px rgba(45, 55, 72, 0.3);
+
+        /* Media Queries untuk HP */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            nav { flex-wrap: wrap; padding: 10px; }
+            nav a { margin: 5px; font-size: 0.9em; }
+            .container { width: 95%; padding: 20px; }
+            .grid { flex-direction: column; gap: 15px; }
+            .btn-sosmed { display: block; text-align: center; margin: 10px 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <h1>Graceland Amadeus Subianto</h1>
         <p>Siswa SMA | Kreator Digital | Web Developer</p>
     </header>
 
-    <!-- Navigasi -->
-    <nav>
-        <a href="#tentang">Tentang Saya</a>
-        <a href="#keterampilan">Keterampilan</a>
-        <a href="#pengalaman">Pengalaman</a>
-        <a href="#kontak">Kontak</a>
+    <nav id="navbar">
+        <a href="#tentang" class="nav-link">Tentang Saya</a>
+        <a href="#keterampilan" class="nav-link">Keterampilan</a>
+        <a href="#pengalaman" class="nav-link">Pengalaman</a>
+        <a href="#kontak" class="nav-link">Kontak</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Ubah Tema">
+            <i class="fas fa-moon"></i>
+        </button>
     </nav>
 
-    <!-- Konten Utama -->
     <div class="container">
         
-        <!-- Bagian Tentang Saya -->
         <section id="tentang">
             <h2>Tentang Saya</h2>
             <p>Perkenalkan nama saya <strong>Graceland Amadeus Subianto</strong> atau biasa dipanggil Graceland. Saya merupakan siswa SMA Petra 4 Sidoarjo yang saat ini menduduki bangku kelas 11. Saya memiliki minat yang besar serta bakat di bidang teknologi, pemrograman web, dan juga strategi media sosial.</p>
         </section>
 
-        <!-- Bagian Keterampilan -->
         <section id="keterampilan">
             <h2>Keterampilan (Skills)</h2>
             <div class="grid">
@@ -241,7 +299,6 @@
             </div>
         </section>
 
-        <!-- Bagian Pengalaman & Proyek -->
         <section id="pengalaman">
             <h2>Pengalaman & Proyek Sekolah</h2>
             <div class="grid">
@@ -260,7 +317,6 @@
             </div>
         </section>
 
-        <!-- Bagian Kontak -->
         <section id="kontak">
             <h2>Hubungi Saya</h2>
             <p>Saya sangat terbuka untuk berdiskusi, bertukar pikiran, atau berkolaborasi dalam proyek-proyek teknologi dan kreatif lainnya. Silakan hubungi saya melalui:</p>
@@ -270,18 +326,83 @@
             </p>
             
             <div class="sosmed-container">
-                <a href="https://www.instagram.com/graceland.amadeus?igsh=MWFweHA0ZXkwdzQzZg==" class="btn-sosmed" target="_blank">Instagram</a>
-                <a href="https://www.tiktok.com/@asel_web_program?_r=1&_t=ZS-96cjTGiLQmr" class="btn-sosmed" target="_blank">TikTok</a>
-                <a href="https://share.google/TgwFeGnkF6gwm4PP4" class="btn-sosmed btn-github" target="_blank">GitHub / KreatifKris</a>
+                <a href="https://www.instagram.com/graceland.amadeus?igsh=MWFweHA0ZXkwdzQzZg==" class="btn-sosmed" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.tiktok.com/@asel_web_program?_r=1&_t=ZS-96cjTGiLQmr" class="btn-sosmed" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="https://share.google/TgwFeGnkF6gwm4PP4" class="btn-sosmed btn-github" target="_blank"><i class="fab fa-github"></i> GitHub / KreatifKris</a>
             </div>
         </section>
 
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Graceland Amadeus. Dibuat dengan penuh dedikasi sebagai portofolio pribadi.</p>
     </footer>
 
+    <script>
+        // 1. Fitur Toggle Dark / Light Mode
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = 'light';
+            
+            if (currentTheme !== 'dark') {
+                newTheme = 'dark';
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+        });
+
+        // 2. Animasi Perubahan Ukuran Navbar saat Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 3. Scroll Reveal Animation (Elemen Muncul saat Di-scroll)
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.85;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerBottom) {
+                    section.classList.add('reveal');
+                }
+            });
+
+            // Auto-active Menu Navigasi Berdasarkan Posisi Halaman
+            let currentSection = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll); // Jalankan sekali saat web dimuat
+    </script>
 </body>
+
+
 
