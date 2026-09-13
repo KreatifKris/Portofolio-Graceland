@@ -272,7 +272,7 @@
         
         <section id="tentang">
             <h2>Tentang Saya</h2>
-            <p>Perkenalkan nama saya <strong>Graceland Amadeus Subianto</strong> atau biasa dipanggil Graceland. Saya merupakan siswa SMA Petra 4 Sidoarjo yang saat ini menduduki bangku kelas 11. Saya memiliki minat yang besar serta bakat di bidang teknologi, pemrograman web, dan juga strategi media sosial.</p>
+            <p>Perkenalkan nama saya <strong>Graceland Amadeus Subianto</strong> atau biasa dipanggil Graceland. Saya merupakan siswa SMA Petra 4 Sidoarjo yang saat ini menduduki bangku kelas 12. Saya memiliki minat yang besar serta bakat di bidang teknologi, pemrograman web, Public Speaking, dan Editing Video.</p>
         </section>
 
         <section id="keterampilan">
