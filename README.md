@@ -367,7 +367,7 @@
             <div class="grid">
                 <!-- Sertifikat 1: Public Speaking -->
                 <div class="card card-cert">
-                    <img src="https://cdn.arkademi.com/asset/img/20201231145202/Arkademi-Kursus-Online-Sertifikat-Menjadi-Public-Speaker-Profesional-Frame.jpg" alt="Sertifikat Public Speaking" class="cert-img">
+                    <img src="IMG-20261001-WA0010.jpg" alt="Sertifikat Public Speaking" class="cert-img">
                     <div class="cert-body">
                         <div>
                             <h3>Sertifikat Public Speaking</h3>
