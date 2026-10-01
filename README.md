@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,7 +5,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2 family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -23,6 +22,8 @@
             --nav-text: #4a5568;
             --shadow: 0 10px 30px rgba(166, 173, 201, 0.2);
             --border-card: #3182ce;
+            --badge-bg: #ebf8ff;
+            --badge-color: #2b6cb0;
         }
 
         [data-theme="dark"] {
@@ -36,6 +37,8 @@
             --nav-text: #cbd5e1;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             --border-card: #38bdf8;
+            --badge-bg: #0f172a;
+            --badge-color: #38bdf8;
         }
 
         html {
@@ -202,7 +205,47 @@
             margin-top: 0;
             color: var(--text-heading);
             font-size: 1.2em;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+        }
+
+        /* Tampilan Khusus Card Sertifikat dengan Gambar */
+        .card-cert {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 0;
+        }
+        .cert-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+        .cert-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        .cert-issuer {
+            font-weight: 600;
+            font-size: 0.85em;
+            color: var(--border-card);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .cert-badge {
+            display: inline-block;
+            background-color: var(--badge-bg);
+            color: var(--badge-color);
+            font-size: 0.8em;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-top: 15px;
+            align-self: flex-start;
         }
 
         /* Footer */
@@ -262,6 +305,7 @@
         <a href="#tentang" class="nav-link">Tentang Saya</a>
         <a href="#keterampilan" class="nav-link">Keterampilan</a>
         <a href="#pengalaman" class="nav-link">Pengalaman</a>
+        <a href="#sertifikat" class="nav-link">Sertifikat</a>
         <a href="#kontak" class="nav-link">Kontak</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Ubah Tema">
             <i class="fas fa-moon"></i>
@@ -313,6 +357,38 @@
                 <div class="card">
                     <h3>Juara 1 Lomba Konten</h3>
                     <p>Meraih juara 1 kompetisi pembuatan konten kreatif bertema <em>"Food Blogger"</em> saat menempuh studi di SMP Petra 4.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Sertifikat dengan Gambar -->
+        <section id="sertifikat">
+            <h2>Sertifikat & Pelatihan</h2>
+            <div class="grid">
+                <!-- Sertifikat 1: Public Speaking -->
+                <div class="card card-cert">
+                    <img src="https://cdn.arkademi.com/asset/img/20201231145202/Arkademi-Kursus-Online-Sertifikat-Menjadi-Public-Speaker-Profesional-Frame.jpg" alt="Sertifikat Public Speaking" class="cert-img">
+                    <div class="cert-body">
+                        <div>
+                            <h3>Sertifikat Public Speaking</h3>
+                            <span class="cert-issuer"><i class="fas fa-microphone"></i> Pelatihan Komunikasi & Presentasi</span>
+                            <p>Sertifikasi dalam menguasai teknik komunikasi publik, penyampaian materi secara efektif, serta membangun rasa percaya diri di depan audiens.</p>
+                        </div>
+                        <span class="cert-badge"><i class="fas fa-certificate"></i> Public Speaking</span>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 2: Seminar & Prototype YOLOv5 -->
+                <div class="card card-cert">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTpDtq4Aah2jkT7cI9yFjUMyPjUYm5lG4jpMTjT65XW4F9WW6VbyjqnAiRqEjEd5nDvQmvtqp_FKmDXVAw" alt="Sertifikat Seminar & Prototype YOLOv5" class="cert-img">
+                    <div class="cert-body">
+                        <div>
+                            <h3>Seminar & Prototype YOLOv5</h3>
+                            <span class="cert-issuer"><i class="fas fa-brain"></i> Computer Vision & AI Workshop</span>
+                            <p>Sertifikat partisipasi seminar teknologi dan pembuatan prototipe *Object Detection* berbasis kecerdasan buatan (*Deep Learning*) menggunakan model YOLOv5.</p>
+                        </div>
+                        <span class="cert-badge"><i class="fas fa-laptop-code"></i> AI & Computer Vision</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -403,6 +479,3 @@
         window.addEventListener('load', revealOnScroll); // Jalankan sekali saat web dimuat
     </script>
 </body>
-
-
-
