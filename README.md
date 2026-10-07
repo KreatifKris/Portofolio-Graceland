@@ -380,7 +380,7 @@
 
                 <!-- Sertifikat 2: Seminar & Prototype YOLOv5 -->
                 <div class="card card-cert">
-                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTpDtq4Aah2jkT7cI9yFjUMyPjUYm5lG4jpMTjT65XW4F9WW6VbyjqnAiRqEjEd5nDvQmvtqp_FKmDXVAw" alt="Sertifikat Seminar & Prototype YOLOv5" class="cert-img">
+                    <img src="IMG-20261002-WA0006.jpg" alt="Sertifikat Seminar & Prototype YOLOv5" class="cert-img">
                     <div class="cert-body">
                         <div>
                             <h3>Seminar & Prototype YOLOv5</h3>
